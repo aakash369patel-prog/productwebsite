@@ -35,7 +35,7 @@
                     <select name="category" class="form-select" onchange="if(this.value) window.location=this.value;">
                         <option value="<?= base_url('products') ?>">All Categories</option>
                         <?php foreach ($categories as $cat): ?>
-                            <option value="<?= base_url('products/' . $cat['slug']) ?>" <?= ($category && $category['slug'] === $cat['slug']) ? 'selected' : '' ?>>
+                            <option value="<?= base_url('category/' . $cat['slug']) ?>" <?= ($category && $category['slug'] === $cat['slug']) ? 'selected' : '' ?>>
                                 <?= esc($cat['name']) ?> (<?= (int) ($cat['product_count'] ?? 0) ?>)
                             </option>
                         <?php endforeach; ?>
@@ -90,7 +90,7 @@
                         <h3><?= esc($cat['name']) ?></h3>
                         <p><?= esc(truncate_text($cat['short_description'], 90)) ?></p>
                         <span class="product-count"><?= (int) ($cat['product_count'] ?? 0) ?> Products</span>
-                        <a href="<?= base_url('products/' . $cat['slug']) ?>" class="btn btn-sm btn-outline-primary">View Products</a>
+                        <a href="<?= base_url('category/' . $cat['slug']) ?>" class="btn btn-sm btn-outline-primary">View Products</a>
                     </div>
                 </div>
             </div>

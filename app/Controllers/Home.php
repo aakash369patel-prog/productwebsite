@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\HomeBannerModel;
 use App\Models\ProductCategoryModel;
 use App\Models\ProductModel;
 
@@ -11,11 +12,13 @@ class Home extends BaseController
     {
         $categoryModel = model(ProductCategoryModel::class);
         $productModel  = model(ProductModel::class);
+        $bannerModel   = model(HomeBannerModel::class);
 
         $data = [
             'pageTitle'       => site_name() . ' - Premium B2B Export Products',
             'metaDescription' => 'Leading manufacturer and exporter of organic herbal powders, essential oils, cold pressed oils and tea ingredients. Bulk supply with export quality standards.',
             'metaKeywords'    => 'B2B exporter, herbal powder, essential oils, bulk supplier, manufacturer',
+            'banners'         => $bannerModel->getActiveBanners(),
             'categories'      => $categoryModel->getWithProductCount('active'),
             'featuredProducts'=> $productModel->getFeatured(8),
             'latestProducts'  => $productModel->getLatest(8),

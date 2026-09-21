@@ -1,18 +1,76 @@
+<?php $banners = $banners ?? []; $bannerCount = count($banners); ?>
 <section class="hero-section">
-    <div class="hero-overlay"></div>
-    <div class="container position-relative">
-        <div class="row align-items-center min-vh-75">
-            <div class="col-lg-7">
-                <span class="hero-badge">Trusted B2B Exporter</span>
-                <h1 class="hero-title">Premium Natural Products for Global Markets</h1>
-                <p class="hero-text">We manufacture and export high-quality organic powders, essential oils, cold pressed oils and tea ingredients with export-grade documentation and reliable bulk supply.</p>
-                <div class="d-flex flex-wrap gap-3">
-                    <a href="<?= base_url('products') ?>" class="btn btn-primary btn-lg">Explore Products</a>
-                    <button class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#enquiryModal">Send Enquiry</button>
+    <?php if ($bannerCount === 0): ?>
+        <div class="hero-slide" style="background-image: url('<?= base_url('assets/images/hero-banner.jpg') ?>');">
+            <div class="container position-relative">
+                <div class="row align-items-center min-vh-75">
+                    <div class="col-lg-7">
+                        <span class="hero-badge">Trusted B2B Exporter</span>
+                        <h1 class="hero-title">Premium Natural Products for Global Markets</h1>
+                        <p class="hero-text">We manufacture and export high-quality organic powders, essential oils, cold pressed oils and tea ingredients with export-grade documentation and reliable bulk supply.</p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="<?= base_url('products') ?>" class="btn btn-primary btn-lg">Explore Products</a>
+                            <button class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#enquiryModal">Send Enquiry</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php elseif ($bannerCount === 1): ?>
+        <?php $banner = $banners[0]; ?>
+        <div class="hero-slide" style="background-image: url('<?= esc(banner_image_url($banner['image']), 'attr') ?>');">
+            <div class="container position-relative">
+                <div class="row align-items-center min-vh-75">
+                    <div class="col-lg-7">
+                        <?php if (! empty($banner['badge'])): ?><span class="hero-badge"><?= esc($banner['badge']) ?></span><?php endif; ?>
+                        <h1 class="hero-title"><?= esc($banner['title']) ?></h1>
+                        <?php if (! empty($banner['description'])): ?><p class="hero-text"><?= esc($banner['description']) ?></p><?php endif; ?>
+                        <div class="d-flex flex-wrap gap-3">
+                            <?= banner_cta($banner['button_text'] ?? '', $banner['button_url'] ?? '', 'btn btn-primary btn-lg') ?>
+                            <?= banner_cta($banner['secondary_button_text'] ?? '', $banner['secondary_button_url'] ?? '', 'btn btn-outline-light btn-lg') ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php else: ?>
+        <div id="homeBannerCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <?php foreach ($banners as $i => $banner): ?>
+                    <button type="button" data-bs-target="#homeBannerCarousel" data-bs-slide-to="<?= $i ?>" class="<?= $i === 0 ? 'active' : '' ?>" <?= $i === 0 ? 'aria-current="true"' : '' ?> aria-label="Slide <?= $i + 1 ?>"></button>
+                <?php endforeach; ?>
+            </div>
+            <div class="carousel-inner">
+                <?php foreach ($banners as $i => $banner): ?>
+                <div class="carousel-item <?= $i === 0 ? 'active' : '' ?>">
+                    <div class="hero-slide" style="background-image: url('<?= esc(banner_image_url($banner['image']), 'attr') ?>');">
+                        <div class="container position-relative">
+                            <div class="row align-items-center min-vh-75">
+                                <div class="col-lg-7">
+                                    <?php if (! empty($banner['badge'])): ?><span class="hero-badge"><?= esc($banner['badge']) ?></span><?php endif; ?>
+                                    <h1 class="hero-title"><?= esc($banner['title']) ?></h1>
+                                    <?php if (! empty($banner['description'])): ?><p class="hero-text"><?= esc($banner['description']) ?></p><?php endif; ?>
+                                    <div class="d-flex flex-wrap gap-3">
+                                        <?= banner_cta($banner['button_text'] ?? '', $banner['button_url'] ?? '', 'btn btn-primary btn-lg') ?>
+                                        <?= banner_cta($banner['secondary_button_text'] ?? '', $banner['secondary_button_url'] ?? '', 'btn btn-outline-light btn-lg') ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#homeBannerCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#homeBannerCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    <?php endif; ?>
 </section>
 
 <section class="section-padding bg-white">
@@ -56,7 +114,7 @@
                         <h3><?= esc($category['name']) ?></h3>
                         <p><?= esc(truncate_text($category['short_description'], 90)) ?></p>
                         <span class="product-count"><?= (int) ($category['product_count'] ?? 0) ?> Products</span>
-                        <a href="<?= base_url('products/' . $category['slug']) ?>" class="btn btn-sm btn-outline-primary">View Products</a>
+                        <a href="<?= base_url('category/' . $category['slug']) ?>" class="btn btn-sm btn-outline-primary">View Products</a>
                     </div>
                 </div>
             </div>

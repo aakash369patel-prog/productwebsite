@@ -22,7 +22,7 @@
     </url>
     <?php foreach ($categories as $category): ?>
     <url>
-        <loc><?= base_url('products/' . $category['slug']) ?></loc>
+        <loc><?= base_url('category/' . $category['slug']) ?></loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

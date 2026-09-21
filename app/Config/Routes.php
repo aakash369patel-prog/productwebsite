@@ -11,7 +11,8 @@ $routes->get('/', 'Home::index');
 $routes->get('about', 'Home::about');
 $routes->get('contact', 'Home::contact');
 $routes->get('products', 'Products::index');
-$routes->get('products/(:segment)', 'Products::index/$1');
+$routes->get('category/(:segment)', 'Products::index/$1');
+$routes->addRedirect('products/(:segment)', 'category/$1');
 $routes->get('product/(:segment)', 'Products::detail/$1');
 $routes->post('enquiry/submit', 'Enquiry::submit');
 $routes->get('sitemap.xml', 'Sitemap::index');
@@ -46,6 +47,15 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'ad
     $routes->get('products/view/(:num)', 'Product::view/$1');
     $routes->post('products/delete/(:num)', 'Product::delete/$1');
     $routes->post('products/gallery/delete/(:num)', 'Product::deleteGalleryImage/$1');
+
+    // Home Banners
+    $routes->get('banners', 'HomeBanner::index');
+    $routes->get('banners/create', 'HomeBanner::create');
+    $routes->post('banners/store', 'HomeBanner::store');
+    $routes->get('banners/edit/(:num)', 'HomeBanner::edit/$1');
+    $routes->post('banners/update/(:num)', 'HomeBanner::update/$1');
+    $routes->get('banners/view/(:num)', 'HomeBanner::view/$1');
+    $routes->post('banners/delete/(:num)', 'HomeBanner::delete/$1');
 
     // Enquiries
     $routes->get('enquiries', 'ProductEnquiry::index');

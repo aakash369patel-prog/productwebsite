@@ -12,7 +12,7 @@
                     <meta itemprop="position" content="2">
                 </li>
                 <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a href="<?= base_url('products/' . $product['category_slug']) ?>" itemprop="item"><span itemprop="name"><?= esc($product['category_name']) ?></span></a>
+                    <a href="<?= base_url('category/' . $product['category_slug']) ?>" itemprop="item"><span itemprop="name"><?= esc($product['category_name']) ?></span></a>
                     <meta itemprop="position" content="3">
                 </li>
                 <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">

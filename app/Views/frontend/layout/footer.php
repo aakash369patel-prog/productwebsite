@@ -28,7 +28,7 @@
                             <?php
                             $footerCategories = model(\App\Models\ProductCategoryModel::class)->getActiveCategories(6);
                             foreach ($footerCategories as $cat): ?>
-                                <li><a href="<?= base_url('products/' . $cat['slug']) ?>"><?= esc($cat['name']) ?></a></li>
+                                <li><a href="<?= base_url('category/' . $cat['slug']) ?>"><?= esc($cat['name']) ?></a></li>
                             <?php endforeach; ?>
                         </ul>
                     </div>

@@ -88,3 +88,43 @@ if (! function_exists('admin_user')) {
         return session()->get('admin_user');
     }
 }
+
+if (! function_exists('banner_cta')) {
+    function banner_cta(?string $text, ?string $url, string $class = 'btn btn-primary btn-lg'): string
+    {
+        $text = trim((string) $text);
+
+        if ($text === '') {
+            return '';
+        }
+
+        $url = trim((string) $url);
+
+        if ($url === '') {
+            return '';
+        }
+
+        if (strcasecmp($url, 'enquiry') === 0 || $url === '#enquiryModal') {
+            return '<button type="button" class="' . esc($class, 'attr') . '" data-bs-toggle="modal" data-bs-target="#enquiryModal">' . esc($text) . '</button>';
+        }
+
+        if (preg_match('#^(https?:)?//#i', $url) || str_starts_with($url, '#')) {
+            $href = $url;
+        } else {
+            $href = base_url(ltrim($url, '/'));
+        }
+
+        return '<a href="' . esc($href, 'attr') . '" class="' . esc($class, 'attr') . '">' . esc($text) . '</a>';
+    }
+}
+
+if (! function_exists('banner_image_url')) {
+    function banner_image_url(?string $path): string
+    {
+        if (! empty($path)) {
+            return upload_url($path);
+        }
+
+        return base_url('assets/images/hero-banner.jpg');
+    }
+}

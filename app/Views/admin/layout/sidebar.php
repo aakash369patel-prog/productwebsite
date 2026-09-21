@@ -7,6 +7,10 @@
         <a href="<?= base_url('admin/dashboard') ?>" class="nav-link <?= uri_string() === 'admin/dashboard' ? 'active' : '' ?>">
             <i class="fas fa-chart-line"></i> Dashboard
         </a>
+        <div class="nav-group-label">Website</div>
+        <a href="<?= base_url('admin/banners') ?>" class="nav-link <?= str_starts_with(uri_string(), 'admin/banners') ? 'active' : '' ?>">
+            <i class="fas fa-images"></i> Home Banner
+        </a>
         <div class="nav-group-label">Product Management</div>
         <a href="<?= base_url('admin/categories') ?>" class="nav-link <?= str_starts_with(uri_string(), 'admin/categories') ? 'active' : '' ?>">
             <i class="fas fa-folder-tree"></i> Product Category
