@@ -55,7 +55,7 @@
                     <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('/') ?>">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('about') ?>">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?= base_url('products') ?>">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?= base_url('product') ?>">Products</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= base_url('contact') ?>">Contact Us</a></li>
                         <li class="nav-item ms-lg-2">
                             <button class="btn btn-primary btn-enquiry" data-bs-toggle="modal" data-bs-target="#enquiryModal">

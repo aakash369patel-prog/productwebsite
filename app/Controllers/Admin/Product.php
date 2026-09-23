@@ -28,7 +28,7 @@ class Product extends AdminBaseController
         $filters = [
             'search'      => $this->request->getGet('search'),
             'status'      => $this->request->getGet('status'),
-            'category_id' => $this->request->getGet('category_id'),
+            // 'category_id' => $this->request->getGet('category_id'),
         ];
 
         $result = $this->productModel->adminList($filters, 20);
@@ -37,8 +37,8 @@ class Product extends AdminBaseController
             'pageTitle'  => 'Products',
             'products'   => $result['products'],
             'pager'      => $result['pager'],
-            'filters'    => $filters,
-            'categories' => model(ProductCategoryModel::class)->orderBy('name', 'ASC')->findAll(),
+            'filters' => $filters,
+            // 'categories' => model(ProductCategoryModel::class)->orderBy('name', 'ASC')->findAll(),
         ]);
     }
 

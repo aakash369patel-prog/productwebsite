@@ -9,7 +9,7 @@
                         <h1 class="hero-title">Premium Natural Products for Global Markets</h1>
                         <p class="hero-text">We manufacture and export high-quality organic powders, essential oils, cold pressed oils and tea ingredients with export-grade documentation and reliable bulk supply.</p>
                         <div class="d-flex flex-wrap gap-3">
-                            <a href="<?= base_url('products') ?>" class="btn btn-primary btn-lg">Explore Products</a>
+                            <a href="<?= base_url('product') ?>" class="btn btn-primary btn-lg">Explore Products</a>
                             <button class="btn btn-outline-light btn-lg" data-bs-toggle="modal" data-bs-target="#enquiryModal">Send Enquiry</button>
                         </div>
                     </div>
@@ -96,6 +96,7 @@
     </div>
 </section>
 
+<?php if (false): // Category section disabled ?>
 <section class="section-padding bg-light">
     <div class="container">
         <div class="text-center mb-5">
@@ -122,6 +123,7 @@
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <section class="section-padding bg-white">
     <div class="container">
@@ -130,7 +132,7 @@
                 <span class="section-label">Featured</span>
                 <h2 class="section-title mb-0">Featured Products</h2>
             </div>
-            <a href="<?= base_url('products') ?>" class="btn btn-outline-primary">View All Products</a>
+            <a href="<?= base_url('product') ?>" class="btn btn-outline-primary">View All Products</a>
         </div>
         <div class="row g-4">
             <?php foreach ($featuredProducts as $product): ?>

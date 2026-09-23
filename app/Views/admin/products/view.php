@@ -8,7 +8,7 @@
             <div class="table-responsive">
             <table class="table table-bordered">
                 <tr><th width="200">Name</th><td><?= esc($product['name']) ?></td></tr>
-                <tr><th>Category</th><td><?= esc($product['category_name'] ?? '') ?></td></tr>
+                <?php /* <tr><th>Category</th><td><?= esc($product['category_name'] ?? '') ?></td></tr> */ ?>
                 <tr><th>Slug</th><td><?= esc($product['slug']) ?></td></tr>
                 <tr><th>MOQ</th><td><?= esc($product['moq'] ?? '-') ?> <?= esc($product['moq_unit'] ?? '') ?></td></tr>
                 <tr><th>Status</th><td><?= ucfirst($product['status']) ?></td></tr>

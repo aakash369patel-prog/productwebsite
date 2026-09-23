@@ -8,16 +8,18 @@
                     <meta itemprop="position" content="1">
                 </li>
                 <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a href="<?= base_url('products') ?>" itemprop="item"><span itemprop="name">Products</span></a>
+                    <a href="<?= base_url('product') ?>" itemprop="item"><span itemprop="name">Products</span></a>
                     <meta itemprop="position" content="2">
                 </li>
+                <?php if (false): // Category breadcrumb disabled ?>
                 <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                     <a href="<?= base_url('category/' . $product['category_slug']) ?>" itemprop="item"><span itemprop="name"><?= esc($product['category_name']) ?></span></a>
                     <meta itemprop="position" content="3">
                 </li>
+                <?php endif; ?>
                 <li class="breadcrumb-item active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                     <span itemprop="name"><?= esc($product['name']) ?></span>
-                    <meta itemprop="position" content="4">
+                    <meta itemprop="position" content="3">
                 </li>
             </ol>
         </nav>
@@ -31,7 +33,6 @@
     "name": "<?= esc($product['name']) ?>",
     "description": "<?= esc(truncate_text(strip_tags($product['short_description']), 200)) ?>",
     "image": "<?= upload_url($product['main_image']) ?>",
-    "category": "<?= esc($product['category_name']) ?>",
     "brand": {
         "@type": "Brand",
         "name": "<?= esc(site_name()) ?>"
@@ -71,7 +72,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <span class="product-category-badge"><?= esc($product['category_name']) ?></span>
+                <?php /* <span class="product-category-badge"><?= esc($product['category_name']) ?></span> */ ?>
                 <h2 class="product-detail-title"><?= esc($product['name']) ?></h2>
                 <p class="product-detail-desc"><?= esc($product['short_description']) ?></p>
 

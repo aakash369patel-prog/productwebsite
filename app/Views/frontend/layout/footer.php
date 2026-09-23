@@ -18,10 +18,11 @@
                         <ul class="footer-links">
                             <li><a href="<?= base_url('/') ?>">Home</a></li>
                             <li><a href="<?= base_url('about') ?>">About Us</a></li>
-                            <li><a href="<?= base_url('products') ?>">Products</a></li>
+                            <li><a href="<?= base_url('product') ?>">Products</a></li>
                             <li><a href="<?= base_url('contact') ?>">Contact Us</a></li>
                         </ul>
                     </div>
+                    <?php if (false): // Product categories footer disabled ?>
                     <div class="col-lg-3 col-md-6">
                         <h5 class="footer-title">Product Categories</h5>
                         <ul class="footer-links">
@@ -32,6 +33,7 @@
                             <?php endforeach; ?>
                         </ul>
                     </div>
+                    <?php endif; ?>
                     <div class="col-lg-3 col-md-6">
                         <h5 class="footer-title">Contact Info</h5>
                         <ul class="footer-contact">

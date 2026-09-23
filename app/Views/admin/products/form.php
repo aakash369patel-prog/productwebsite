@@ -11,6 +11,7 @@
                 <h5 class="mb-3">Basic Information</h5>
                 <div class="mb-3"><label class="form-label">Product Name *</label><input type="text" name="name" class="form-control" value="<?= old('name', $product['name'] ?? '') ?>" required></div>
                 <div class="mb-3"><label class="form-label">Slug</label><input type="text" name="slug" class="form-control" value="<?= old('slug', $product['slug'] ?? '') ?>"></div>
+                <?php if (false): // Category field disabled ?>
                 <div class="mb-3"><label class="form-label">Category *</label>
                     <select name="category_id" class="form-select" required>
                         <option value="">Select Category</option>
@@ -19,6 +20,8 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
+                <?php endif; ?>
+                <input type="hidden" name="category_id" value="<?= esc(old('category_id', $product['category_id'] ?? ($categories[0]['id'] ?? 1))) ?>">
                 <div class="mb-3"><label class="form-label">Short Description</label><textarea name="short_description" class="form-control" rows="2"><?= old('short_description', $product['short_description'] ?? '') ?></textarea></div>
                 <div class="mb-3"><label class="form-label">Full Description</label><textarea name="description" class="form-control" rows="5"><?= old('description', $product['description'] ?? '') ?></textarea></div>
                 <div class="row g-3">

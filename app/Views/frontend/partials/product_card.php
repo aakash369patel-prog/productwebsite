@@ -9,7 +9,7 @@
             <?php endif; ?>
         </div>
         <div class="product-body">
-            <span class="product-category"><?= esc($product['category_name'] ?? '') ?></span>
+            <?php /* <span class="product-category"><?= esc($product['category_name'] ?? '') ?></span> */ ?>
             <h3><a href="<?= base_url('product/' . $product['slug']) ?>"><?= esc($product['name']) ?></a></h3>
             <p><?= esc(truncate_text($product['short_description'], 80)) ?></p>
             <?php if (! empty($product['moq'])): ?>

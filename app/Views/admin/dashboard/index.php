@@ -4,12 +4,14 @@
 </div>
 
 <div class="row g-4 mb-4">
+    <?php /*
     <div class="col-xl-3 col-md-6">
         <div class="stat-card stat-primary">
             <div class="stat-icon"><i class="fas fa-folder-tree"></i></div>
             <div><h3><?= $totalCategories ?></h3><p>Total Categories</p></div>
         </div>
     </div>
+    */ ?>
     <div class="col-xl-3 col-md-6">
         <div class="stat-card stat-success">
             <div class="stat-icon"><i class="fas fa-box"></i></div>
@@ -70,7 +72,7 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <div>
                             <strong><?= esc($p['name']) ?></strong>
-                            <small class="d-block text-muted"><?= esc($p['category_name'] ?? '') ?></small>
+                            <?php /* <small class="d-block text-muted"><?= esc($p['category_name'] ?? '') ?></small> */ ?>
                         </div>
                         <a href="<?= base_url('admin/products/edit/' . $p['id']) ?>" class="btn btn-sm btn-light">Edit</a>
                     </li>

@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\ProductCategoryModel;
+// use App\Models\ProductCategoryModel;
 use App\Models\ProductImageModel;
 use App\Models\ProductModel;
 use App\Models\ProductSpecificationModel;
@@ -11,13 +11,14 @@ class Products extends BaseController
 {
     public function index(?string $categorySlug = null)
     {
-        $categoryModel = model(ProductCategoryModel::class);
-        $productModel  = model(ProductModel::class);
+        // $categoryModel = model(ProductCategoryModel::class);
+        $productModel = model(ProductModel::class);
 
-        $search   = $this->request->getGet('search');
-        $category = null;
-        $filters  = ['search' => $search];
+        $search = $this->request->getGet('search');
+        // $category = null;
+        $filters = ['search' => $search];
 
+        /*
         if ($categorySlug) {
             $category = $categoryModel->findBySlug($categorySlug);
 
@@ -27,15 +28,16 @@ class Products extends BaseController
 
             $filters['category_slug'] = $categorySlug;
         }
+        */
 
         $result = $productModel->frontendList($filters, 12);
 
         $data = [
-            'pageTitle'       => $category ? $category['name'] . ' Products' : 'Our Products',
-            'metaDescription' => $category['meta_description'] ?? 'Browse our complete range of B2B export quality products.',
-            'metaKeywords'    => $category['meta_keywords'] ?? 'products, catalogue, B2B',
-            'categories'      => $categoryModel->getWithProductCount('active'),
-            'category'        => $category,
+            'pageTitle'       => 'Our Products',
+            'metaDescription' => 'Browse our complete range of B2B export quality products.',
+            'metaKeywords'    => 'products, catalogue, B2B',
+            // 'categories'      => $categoryModel->getWithProductCount('active'),
+            // 'category'        => $category,
             'products'        => $result['products'],
             'pager'           => $result['pager'],
             'search'          => $search,
