@@ -13,7 +13,7 @@ class Home extends BaseController
         $categoryModel = model(ProductCategoryModel::class);
         $productModel  = model(ProductModel::class);
         $bannerModel   = model(HomeBannerModel::class);
-
+    
         $data = [
             'pageTitle'       => site_name() . ' - Premium B2B Export Products',
             'metaDescription' => 'Leading manufacturer and exporter of organic herbal powders, essential oils, cold pressed oils and tea ingredients. Bulk supply with export quality standards.',
