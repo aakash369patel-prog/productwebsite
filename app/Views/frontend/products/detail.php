@@ -88,7 +88,8 @@
                 <?php if (! empty($specifications)): ?>
                 <div class="spec-table-wrap mt-4">
                     <h4>Product Specifications</h4>
-                    <table class="table spec-table">
+                    <div class="table-responsive">
+                    <table class="table spec-table mb-0">
                         <tbody>
                             <?php foreach ($specifications as $spec): ?>
                             <tr>
@@ -98,6 +99,7 @@
                             <?php endforeach; ?>
                         </tbody>
                     </table>
+                    </div>
                 </div>
                 <?php endif; ?>
 
