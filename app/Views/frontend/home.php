@@ -34,7 +34,7 @@
             </div>
         </div>
     <?php else: ?>
-        <div id="homeBannerCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel">
+        <div id="homeBannerCarousel" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel" data-bs-interval="6000" data-bs-pause="hover" data-bs-wrap="true" data-bs-touch="true">
             <div class="carousel-indicators">
                 <?php foreach ($banners as $i => $banner): ?>
                     <button type="button" data-bs-target="#homeBannerCarousel" data-bs-slide-to="<?= $i ?>" class="<?= $i === 0 ? 'active' : '' ?>" <?= $i === 0 ? 'aria-current="true"' : '' ?> aria-label="Slide <?= $i + 1 ?>"></button>

@@ -31,7 +31,10 @@ img { max-width: 100%; height: auto; }
 .btn-enquiry { border-radius: 999px; }
 
 .hero-section { position: relative; color: #fff; min-height: 85vh; display: flex; align-items: stretch; background: var(--primary-dark); }
+.hero-section .hero-carousel { flex: 1; width: 100%; min-width: 0; }
 .hero-carousel, .hero-carousel .carousel-inner, .hero-carousel .carousel-item { width: 100%; }
+.hero-carousel .carousel-inner { min-height: 85vh; }
+.hero-carousel .carousel-item { min-height: 85vh; }
 .hero-slide { position: relative; width: 100%; background: center/cover no-repeat; color: #fff; padding: 6rem 0; min-height: 85vh; display: flex; align-items: center; }
 .hero-slide::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(27,67,50,.92), rgba(45,106,79,.85)); }
 .hero-slide .container { z-index: 1; }
