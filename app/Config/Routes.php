@@ -10,10 +10,12 @@ $routes->setAutoRoute(false);
 $routes->get('/', 'Home::index');
 $routes->get('about', 'Home::about');
 $routes->get('contact', 'Home::contact');
-$routes->get('products', 'Products::index');
-$routes->get('category/(:segment)', 'Products::index/$1');
-$routes->addRedirect('products/(:segment)', 'category/$1');
+// $routes->get('products', 'Products::index');
+$routes->addRedirect('products', 'product');
+// $routes->get('category/(:segment)', 'Products::index/$1');
+// $routes->addRedirect('products/(:segment)', 'category/$1');
 $routes->get('product/(:segment)', 'Products::detail/$1');
+$routes->get('product', 'Products::index');
 $routes->post('enquiry/submit', 'Enquiry::submit');
 $routes->get('sitemap.xml', 'Sitemap::index');
 
@@ -29,14 +31,14 @@ $routes->get('admin/logout', 'Admin\Auth::logout', ['filter' => 'adminauth']);
 $routes->group('admin', ['namespace' => 'App\Controllers\Admin', 'filter' => 'adminauth'], static function ($routes) {
     $routes->get('dashboard', 'Dashboard::index');
 
-    // Categories
-    $routes->get('categories', 'ProductCategory::index');
-    $routes->get('categories/create', 'ProductCategory::create');
-    $routes->post('categories/store', 'ProductCategory::store');
-    $routes->get('categories/edit/(:num)', 'ProductCategory::edit/$1');
-    $routes->post('categories/update/(:num)', 'ProductCategory::update/$1');
-    $routes->get('categories/view/(:num)', 'ProductCategory::view/$1');
-    $routes->post('categories/delete/(:num)', 'ProductCategory::delete/$1');
+    // Categories (module disabled — routes commented)
+    // $routes->get('categories', 'ProductCategory::index');
+    // $routes->get('categories/create', 'ProductCategory::create');
+    // $routes->post('categories/store', 'ProductCategory::store');
+    // $routes->get('categories/edit/(:num)', 'ProductCategory::edit/$1');
+    // $routes->post('categories/update/(:num)', 'ProductCategory::update/$1');
+    // $routes->get('categories/view/(:num)', 'ProductCategory::view/$1');
+    // $routes->post('categories/delete/(:num)', 'ProductCategory::delete/$1');
 
     // Products
     $routes->get('products', 'Product::index');

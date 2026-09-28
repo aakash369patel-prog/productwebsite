@@ -1,4 +1,4 @@
-<div class="page-header d-flex justify-content-between align-items-center mb-4">
+<div class="page-header d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
     <div><h1 class="h3 mb-1">Enquiry #<?= $enquiry['id'] ?></h1><p class="text-muted mb-0"><?= format_date($enquiry['created_at'], 'd M Y H:i') ?></p></div>
     <a href="<?= base_url('admin/enquiries') ?>" class="btn btn-light">Back to List</a>
 </div>
@@ -6,6 +6,7 @@
 <div class="row g-4">
     <div class="col-lg-8">
         <div class="admin-card">
+            <div class="table-responsive">
             <table class="table table-bordered">
                 <tr><th width="180">Product</th><td><?php if ($enquiry['product_name']): ?><a href="<?= base_url('product/' . ($enquiry['product_slug'] ?? '')) ?>" target="_blank"><?= esc($enquiry['product_name']) ?></a><?php else: ?>N/A<?php endif; ?></td></tr>
                 <tr><th>Name</th><td><?= esc($enquiry['name']) ?></td></tr>
@@ -16,6 +17,7 @@
                 <tr><th>Quantity</th><td><?= esc($enquiry['quantity'] ?? '-') ?> <?= esc($enquiry['unit'] ?? '') ?></td></tr>
                 <tr><th>Message</th><td><?= nl2br(esc($enquiry['message'])) ?></td></tr>
             </table>
+            </div>
         </div>
     </div>
     <div class="col-lg-4">

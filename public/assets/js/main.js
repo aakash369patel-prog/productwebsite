@@ -81,4 +81,15 @@
             $('.site-header').removeClass('scrolled');
         }
     });
+
+    const homeBannerCarousel = document.getElementById('homeBannerCarousel');
+    if (homeBannerCarousel && typeof bootstrap !== 'undefined') {
+        bootstrap.Carousel.getOrCreateInstance(homeBannerCarousel, {
+            interval: 6000,
+            ride: 'carousel',
+            pause: 'hover',
+            wrap: true,
+            touch: true
+        });
+    }
 })(jQuery);

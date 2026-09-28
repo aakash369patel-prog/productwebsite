@@ -12,9 +12,11 @@
             <i class="fas fa-images"></i> Home Banner
         </a>
         <div class="nav-group-label">Product Management</div>
+        <?php /* Category module disabled
         <a href="<?= base_url('admin/categories') ?>" class="nav-link <?= str_starts_with(uri_string(), 'admin/categories') ? 'active' : '' ?>">
             <i class="fas fa-folder-tree"></i> Product Category
         </a>
+        */ ?>
         <a href="<?= base_url('admin/products') ?>" class="nav-link <?= str_starts_with(uri_string(), 'admin/products') ? 'active' : '' ?>">
             <i class="fas fa-box"></i> Product Details
         </a>

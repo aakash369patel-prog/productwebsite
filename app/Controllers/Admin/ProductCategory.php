@@ -1,5 +1,7 @@
 <?php
 
+// Admin category module disabled — see app/Config/Routes.php (category routes commented).
+
 namespace App\Controllers\Admin;
 
 use App\Libraries\ImageUpload;

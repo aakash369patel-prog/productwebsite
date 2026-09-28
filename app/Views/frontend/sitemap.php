@@ -11,7 +11,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc><?= base_url('products') ?></loc>
+        <loc><?= base_url('product') ?></loc>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
@@ -20,13 +20,13 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    <?php foreach ($categories as $category): ?>
+    <?php if (false): foreach ($categories ?? [] as $category): ?>
     <url>
         <loc><?= base_url('category/' . $category['slug']) ?></loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
-    <?php endforeach; ?>
+    <?php endforeach; endif; ?>
     <?php foreach ($products as $product): ?>
     <url>
         <loc><?= base_url('product/' . $product['slug']) ?></loc>
